@@ -1,7 +1,7 @@
-## Author Dirk Mohr
 ## functions to demonstrate how to do caching in R
 
-## the function makeCacheMatrix() uses something like a static variable in C/C++ to cache the inverse of a matrix
+## the function makeCacheMatrix() uses R Scoping behavior to cache the inverse of a matrix
+## it's somehow like a static variable in C/C++ 
 makeCacheMatrix <- function(x = matrix()) {
     
     inv <- NULL
@@ -28,8 +28,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## the function cacheSolve() uses the object provided by 
-
+## the function cacheSolve() uses the object provided by makeCacheMatrix
+## to return the inverse of a matrix by calculting it or getting it from cache
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
     
